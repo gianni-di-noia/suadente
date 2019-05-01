@@ -1,0 +1,9 @@
+venv
+*.pyc
+*.zip
+*.csv
+dump
+*node_modules*
+.vscode
+.pytest_cache
+suadente/database.py

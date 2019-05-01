@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %} {{ app }} test {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row ">
+    <div id="app" class="text-center">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>organization </th>
+            <th>reported_at</th>
+            <th>created_at</th>
+            <th>inventory count</th>
+            <th>reports</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="report in reports">
+            <td>${ report.id }</td>
+            <td>${ report.organization }</td>
+            <td>${ report.reported_at }</td>
+            <td>${ report.created_at }</td>
+            <td>${ report.inventory.length }</td>
+            <td>
+              <a href="#">PDF</a>
+              <a href="#">XML</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script>
+  var socket = io.connect(document.URL);
+  socket.on('connect', function () {
+    console.log('connected');
+    socket.emit('start', {});
+  });
+  var reports = [];
+  socket.on('update', function (reports) {
+    console.log('update', reports);
+    app.reports = reports;
+  });
+  var app = new Vue({
+    delimiters: ['${', '}'],
+    el: '#app',
+    data: {
+      reports: reports
+    }
+  })
+</script>
+{% endblock %}

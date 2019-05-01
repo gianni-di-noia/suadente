@@ -1,0 +1,7 @@
+Flask
+gunicorn
+eventlet
+python-socketio
+psycopg2-binary
+sqlalchemy
+fpdf

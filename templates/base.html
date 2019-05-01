@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="author"
+          content="Gianni Di Noia">
+    <meta name="description"
+          content="{{ app }} · {{ title }}">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="/static/base.css?version=01">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+    <title>{{ app }} · {{ page }}</title>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block content %} {% endblock %}
+  </body>
+
+</html>
