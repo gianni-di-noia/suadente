@@ -3,7 +3,8 @@
 {% block content %}
 <div class="container">
   <div class="row ">
-    <div id="app" class="text-center">
+    <div id="app"
+         class="text-center">
       <table class="table table-condensed">
         <thead>
           <tr>
@@ -23,8 +24,8 @@
             <td>${ report.created_at }</td>
             <td>${ report.inventory.length }</td>
             <td>
-              <a href="#">PDF</a>
-              <a href="#">XML</a>
+              <a v-bind:href="'/report/' + report.id + '/format/pdf'">PDF</a>
+              <!-- <a v-bind:href="'/report/' + report.id + '/format/xml'">XML</a> -->
             </td>
           </tr>
         </tbody>
